@@ -1,0 +1,72 @@
+$page-max-width: 1000px;
+$footer-max-height: 120px;
+$color-yellow: #f4ce14;
+$color-green: #495e57;
+
+@mixin hover($hoverColor: $color-yellow, $visitedColor: $color-green) {
+  transition: color 0.3s;
+
+  &:visited {
+    color: $visitedColor;
+  }
+
+  &:hover {
+    color: $hoverColor;
+  }
+}
+
+#root {
+  display: grid;
+  grid-template-rows: auto 1fr $footer-max-height + 40;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: $page-max-width;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  flex: 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.footer .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr $footer-max-height;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  max-height: $footer-max-height;
+  height: 100%;
+}
+
+.menu {
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu--vertical {
+  flex-direction: column;
+  gap: 8px;
+  flex-wrap: wrap;
+  display: flex;
+  height: 100%;
+  max-height: $footer-max-height;
+}
+
+.menu-item {
+  list-style: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+
+  @include hover;
+}
