@@ -70,3 +70,21 @@ $color-green: #495e57;
 
   @include hover;
 }
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav .menu {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.nav .menu--mobile {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}

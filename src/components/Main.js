@@ -1,10 +1,8 @@
-const Main = () => {
+const Main = ({ children }) => {
   return (
     <>
       <main>
-        <div className="container">
-          <p>Main component</p>
-        </div>
+        <div className="container">{children}</div>
       </main>
     </>
   );

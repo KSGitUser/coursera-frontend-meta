@@ -1,12 +1,12 @@
 import Logo from './Logo';
-import Nav from './Nav';
+import Nav from './Navigation/Nav';
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
         <Logo></Logo>
-        <Nav className="menu--vertical"></Nav>
+        <Nav className="menu--vertical" isShowMobileMenu={false}></Nav>
       </div>
     </footer>
   );

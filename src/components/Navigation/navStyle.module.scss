@@ -1,0 +1,24 @@
+.navModal__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navModal__wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: 100%;
+  max-width: 400px;
+
+  :global(.menu) {
+    min-width: 150px;
+    padding: 16px;
+    flex-direction: column;
+  }
+}
