@@ -1,0 +1,42 @@
+@import '../../assets/style/variables.scss';
+
+.button {
+    min-width: 202px;
+    padding: 22.5px 43px;
+    background-color: $color-yellow;
+    border-radius: $border-radius;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid $color-yellow;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color-green;
+        color: $color-white
+    }
+
+    &:global(.button__left) {
+        margin-right: auto;
+    }
+
+    &:global(.button__center) {
+        margin: auto;
+    }
+
+    &:global(.button__right) {
+        margin-left: auto;
+    }
+
+    @include screenEqAndLess768 {
+        margin: auto;
+    }
+
+
+}
+
+.button:disabled {
+    background-color: $color-gray;
+    border-color: $color-gray;
+    color: $color-disabled;
+    cursor: default;
+}

@@ -1,0 +1,71 @@
+@import '../../assets/style/variables.scss';
+
+.hero {
+    :global(.container) {
+       display: grid;
+       grid-template-areas: "content image"
+                            "button  image";
+        grid-template-columns: 1fr 346px;
+        column-gap: 32px;
+        row-gap: 42px;
+
+        @include screenEqAndLess768 {
+            flex-wrap: wrap;
+            gap: 16px;
+            grid-template-areas: "content"
+                                 "image"
+                                 "button";
+            grid-template-columns: 1fr;
+        }
+    }
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    background-color: $color-green;
+}
+
+.heroTitle {
+    color: $color-yellow;
+}
+
+.heroContentWrapper {
+    grid-area: content;
+    flex: 1 1 auto;
+}
+
+.heroButton {
+    grid-area: button;
+}
+
+.heroImageWrapper {
+    grid-area: image;
+    position: relative;
+    flex: 1 0 346px;
+    @include screenEqAndLess768 {
+        position: static;
+        flex: inherit;
+        margin: auto;
+    }
+}
+
+.heroImage {
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    @include screenEqAndLess768 {
+        position: static;
+    }
+
+    :global(img) {
+        max-width: 346px;
+        aspect-ratio: 346/450;
+        border-radius: $border-radius;
+        object-fit: cover;
+
+        @include screenEqAndLess768 {
+            max-width: 290px;
+        }
+    }
+}

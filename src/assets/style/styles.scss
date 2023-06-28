@@ -1,18 +1,65 @@
-$page-max-width: 1000px;
-$footer-max-height: 120px;
-$color-yellow: #f4ce14;
-$color-green: #495e57;
+@import './variables.scss';
 
 @mixin hover($hoverColor: $color-yellow, $visitedColor: $color-green) {
   transition: color 0.3s;
 
-  &:visited {
-    color: $visitedColor;
-  }
+
 
   &:hover {
     color: $hoverColor;
   }
+
+  &:active {
+    color: $visitedColor;
+  }
+}
+
+//typography
+
+@mixin fontMarkazi($size:64px, $weight: 500, $lineHeight: 77px, $color: #000, $style: normal, $family: "'Markazi Text', serif") {
+    font-family: $family;
+    font-style: $style;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $lineHeight;
+    color: $color;
+}
+
+@mixin fontKarla($size:16px, $weight: 400, $lineHeight: 19px, $color: $color-green, $style: normal, $family: "'Karla', sans-serif") {
+    font-family: $family;
+    font-style: $style;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $lineHeight;
+    color: $color;
+}
+html, body {
+    @include fontKarla
+;
+}
+
+h1, .font-display-title {
+@include fontMarkazi;
+}
+
+h2, .font-subtitle {
+@include fontMarkazi($weight: 400, $size: 40px, $lineHeight: 48px);
+}
+
+.font-card-title {
+@include fontKarla($weight: 700, $size: 18px, $lineHeight: 21px, $color: black);
+}
+
+.lead-text {
+    @include fontKarla($weight: 500, $size: 18px, $lineHeight: 21px, $color: black);
+}
+
+p {
+@include fontKarla;
+}
+
+.color--white {
+  color: $color-white; 
 }
 
 #root {
@@ -67,6 +114,7 @@ $color-green: #495e57;
 .menu a {
   text-decoration: none;
   color: black;
+  @extend .font-card-title;
 
   @include hover;
 }

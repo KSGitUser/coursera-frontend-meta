@@ -1,12 +1,12 @@
-import { createPortal } from 'react-dom';
-import navStyle from './navStyle.module.scss';
+import { createPortal } from 'react-dom'
+import navStyle from './navStyle.module.scss'
 
 const NavMobile = ({ setIsShowModal, children }) => {
   const onMenuClick = (event) => {
-    console.log(event);
-    event.stopPropagation();
-    setTimeout(() => setIsShowModal(false), 300);
-  };
+    console.log(event)
+    event.stopPropagation()
+    setTimeout(() => setIsShowModal(false), 300)
+  }
   return (
     <>
       {createPortal(
@@ -18,9 +18,9 @@ const NavMobile = ({ setIsShowModal, children }) => {
             {children}
           </div>
         </div>,
-        document.body,
+        document.body
       )}
     </>
-  );
-};
-export default NavMobile;
+  )
+}
+export default NavMobile

@@ -2,10 +2,10 @@ const Main = ({ children }) => {
   return (
     <>
       <main>
-        <div className="container">{children}</div>
+        {children}
       </main>
     </>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main
