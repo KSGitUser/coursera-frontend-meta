@@ -18,11 +18,17 @@
             grid-template-columns: 1fr;
         }
     }
+    margin-bottom: 125px;
 
     padding-top: 16px;
     padding-bottom: 16px;
 
     background-color: $color-green;
+
+
+    @include screenEqAndLess768 {
+        margin-bottom: 0;   
+    }
 }
 
 .heroTitle {

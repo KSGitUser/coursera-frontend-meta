@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Main from './components/Main'
 import Footer from './components/Footer'
 import Hero from './components/Hero/Hero'
+import Specials from './components/Specials/Specials'
 
 function App () {
   return (
@@ -10,6 +11,7 @@ function App () {
       <Header> </Header>
       <Main>
         <Hero />
+        <Specials />
       </Main>
       <Footer />
     </>

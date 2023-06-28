@@ -40,10 +40,12 @@ html, body {
 
 h1, .font-display-title {
 @include fontMarkazi;
+margin: 0;
 }
 
 h2, .font-subtitle {
 @include fontMarkazi($weight: 400, $size: 40px, $lineHeight: 48px);
+margin: 0;
 }
 
 .font-card-title {
