@@ -8,15 +8,11 @@
 .specialsHeader {
     display: flex;
     justify-content: space-between;
+    flex:  1 1 auto;
     @include screenEqAndLess768 {
         flex-direction: column;
          padding-bottom: 16px;
-    }
-}
-
-.specialsHeader {
-    flex:  1 1 auto;
-    @include screenEqAndLess768 {
-        margin-bottom: 16px;
+         text-align: center;
+         margin-bottom: 16px;
     }
 }

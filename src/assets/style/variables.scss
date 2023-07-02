@@ -5,10 +5,9 @@ $color-green: #495e57;
 $color-white: #ffffff;
 $color-disabled: rgba(10,10,10,.6);
 $color-gray: #D9D9D9;
+$color-light-gray: #edefee;
 
 $border-radius: 16px;
-
-
 
 @mixin screenEqAndLess768() {
     @media screen and (max-width: 768px) {
@@ -22,3 +21,9 @@ $border-radius: 16px;
       @content;
     }
   }
+
+
+  :export {
+    colorLightGray: $color-light-gray
+  }
+

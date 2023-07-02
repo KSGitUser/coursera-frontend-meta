@@ -1,0 +1,5 @@
+@import "../../assets/style/styles.scss";
+
+.leadText {
+    @include fontKarla($weight: 500, $size: 18px, $lineHeight: 21px, $color: black);
+}

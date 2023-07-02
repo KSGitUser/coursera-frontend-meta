@@ -18,7 +18,7 @@
             grid-template-columns: 1fr;
         }
     }
-    margin-bottom: 125px;
+    margin-bottom: 156px;
 
     padding-top: 16px;
     padding-bottom: 16px;
@@ -27,7 +27,7 @@
 
 
     @include screenEqAndLess768 {
-        margin-bottom: 0;   
+        margin-bottom: 0;
     }
 }
 

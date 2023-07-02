@@ -2,6 +2,7 @@ import Image from '../Image/Image'
 import HeroImage from '../../assets/img/restauranfood.webp'
 import style from './heroStyle.module.scss'
 import Button from '../Button/Button'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
@@ -14,7 +15,7 @@ const Hero = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-        <Button className={style.heroButton}>Reserve Tabel</Button>
+        <Link to='/booking'><Button className={style.heroButton}>Reserve Tabel</Button></Link>
         <div className={style.heroImageWrapper}>
           <Image className={style.heroImage} src={HeroImage} alt='image of food on mane screen' />
         </div>

@@ -34,9 +34,10 @@
     color: $color;
 }
 html, body {
-    @include fontKarla
-;
+    @include fontKarla;
 }
+
+
 
 h1, .font-display-title {
 @include fontMarkazi;
