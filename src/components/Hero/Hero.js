@@ -1,23 +1,22 @@
 import Image from '../Image/Image'
-import HeroImage from '../../assets/img/restauranfood.webp'
 import style from './heroStyle.module.scss'
 import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
 
-const Hero = () => {
+const Hero = ({ title, subtitle, text, button, image }) => {
   return (
     <section className={style.hero}>
       <div className='container '>
         <div className={style.heroContentWrapper}>
-          <h1 className={style.heroTitle}>Little Lemon</h1>
-          <h2 className='color--white'>Chicago</h2>
+          <h1 className={style.heroTitle}>{title}</h1>
+          <h2 className='color--white'>{subtitle}</h2>
           <p className='lead-text color--white'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            {text}
           </p>
         </div>
-        <Link to='/booking'><Button className={style.heroButton}>Reserve Tabel</Button></Link>
+        {button && <Link to={button.link}><Button className={style.heroButton}>{button.text}</Button></Link>}
         <div className={style.heroImageWrapper}>
-          <Image className={style.heroImage} src={HeroImage} alt='image of food on mane screen' />
+          {image && <Image className={style.heroImage} src={image.src} alt={image.alt} />}
         </div>
       </div>
     </section>

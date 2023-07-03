@@ -10,14 +10,14 @@ const NavMobile = ({ setIsShowModal, children }) => {
   return (
     <>
       {createPortal(
-        <div
+        <button
           className={navStyle.navModal__overlay}
           onClick={() => setIsShowModal(false)}
         >
-          <div className={navStyle.navModal__wrapper} onClick={onMenuClick}>
+          <button className={navStyle.navModal__wrapper} onClick={onMenuClick}>
             {children}
-          </div>
-        </div>,
+          </button>
+        </button>,
         document.body
       )}
     </>

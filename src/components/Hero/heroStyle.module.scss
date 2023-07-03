@@ -8,6 +8,7 @@
         grid-template-columns: 1fr 346px;
         column-gap: 32px;
         row-gap: 42px;
+        min-height: 312px;
 
         @include screenEqAndLess768 {
             flex-wrap: wrap;
