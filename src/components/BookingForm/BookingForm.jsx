@@ -111,13 +111,14 @@ const BookingForm = ({ availableTimes, updateTimes }) => {
                 <FormControl>
                   <FormLabel htmlFor='time'>Choose time</FormLabel>
                   <Select
+                    data-testid='form-time-select'
                     variant='flushed'
                     id='time'
                     name='time'
                     value={selectedTime}
                     onChange={(e) => { updateTimes({ type: 'set_time', payload: e.target.value }) }}
                   >
-                    {availableTimes.map(avTime => <option selected={avTime.selected} key={avTime.value} value={avTime.value}>{avTime.label}</option>)}
+                    {availableTimes.map(avTime => <option key={avTime.value} value={avTime.value}>{avTime.label}</option>)}
                   </Select>
                 </FormControl>
                 <FormControl>

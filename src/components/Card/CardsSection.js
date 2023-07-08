@@ -27,7 +27,6 @@ const cards = [
 const CardsSection = () => {
   return (
     <Box
-      isDarkBackground
       alignItems='flex-start'
       spacing={8}
       my='48px'

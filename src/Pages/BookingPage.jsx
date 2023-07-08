@@ -11,8 +11,7 @@ const bookingData = {
     alt: 'image of food on mane screen'
   }
 }
-
-const initialAvailableTimes = () => ([
+export const initialAvailableTimes = () => ([
   { value: '17:00', label: '17:00', selected: true },
   { value: '18:00', label: '18:00', selected: false },
   { value: '19:00', label: '19:00', selected: false },

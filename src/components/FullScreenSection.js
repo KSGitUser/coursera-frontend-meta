@@ -4,7 +4,7 @@ import { VStack } from '@chakra-ui/react'
 /**
  * Illustrates the use of children prop and spread operator
  */
-const FullScreenSection = ({ children, isDarkBackground, ...boxProps }) => {
+const FullScreenSection = ({ children, isDarkBackground = false, ...boxProps }) => {
   return (
     <VStack
       backgroundColor={boxProps.backgroundColor}

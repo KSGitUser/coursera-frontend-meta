@@ -4,11 +4,19 @@ import './index.css'
 import './assets/style/styles.scss'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import { Routes, Route } from 'react-router-dom'
+import HomePage from './Pages/HomePage'
+import BookingPage from './Pages/BookingPage'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <App />
+    <App>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/booking' element={<BookingPage />} />
+      </Routes>
+    </App>
   </React.StrictMode>
 )
 
