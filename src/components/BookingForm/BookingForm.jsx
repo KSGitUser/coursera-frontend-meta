@@ -18,8 +18,14 @@ const occasionValues = [
   { value: 'Birthday', label: 'Birthday' },
   { value: 'Anniversary', label: 'Anniversary' }
 ]
-const BookingForm = ({ availableTimes, updateTimes, formDate, setFormDate }) => {
-  const { isLoading, response, submit } = useSubmit()
+const BookingForm = ({
+  availableTimes,
+  updateTimes,
+  formDate,
+  setFormDate,
+  submitForm
+}) => {
+  const { isLoading, response } = useSubmit()
   const { onOpen } = useAlertContext()
   const formRef = useRef(null)
 
@@ -73,7 +79,11 @@ const BookingForm = ({ availableTimes, updateTimes, formDate, setFormDate }) => 
   //     ]
   //   }
 
-  const onFormSubmit = (e) => { e.preventDefault(); submit() }
+  const onFormSubmit = (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.target)
+    submitForm(formData)
+  }
 
   useEffect(() => {
     console.log('response =>', response)
@@ -115,9 +125,14 @@ const BookingForm = ({ availableTimes, updateTimes, formDate, setFormDate }) => 
                     id='time'
                     name='time'
                     value={selectedTime}
-                    onChange={(e) => { updateTimes({ type: 'set_time', payload: e.target.value }) }}
+                    onChange={(e) => {
+                      updateTimes({
+                        type: 'set_time',
+                        payload: { time: e.target.value, date: formDate }
+                      })
+                    }}
                   >
-                    {availableTimes.map(avTime => <option key={avTime.value} value={avTime.value}>{avTime.label}</option>)}
+                    {availableTimes.map(avTime => <option disabled={avTime.booked} key={avTime.value} value={avTime.value}>{avTime.label}</option>)}
                   </Select>
                 </FormControl>
                 <FormControl>
