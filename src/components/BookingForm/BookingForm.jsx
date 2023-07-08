@@ -18,7 +18,7 @@ const occasionValues = [
   { value: 'Birthday', label: 'Birthday' },
   { value: 'Anniversary', label: 'Anniversary' }
 ]
-const BookingForm = ({ availableTimes, dispatchAvailableTimes }) => {
+const BookingForm = ({ availableTimes, updateTimes }) => {
   const { isLoading, response, submit } = useSubmit()
   const { onOpen } = useAlertContext()
   const formRef = useRef(null)
@@ -109,19 +109,19 @@ const BookingForm = ({ availableTimes, dispatchAvailableTimes }) => {
                   />
                 </FormControl>
                 <FormControl>
-                  <FormLabel htmlFor='time'>Choose date</FormLabel>
+                  <FormLabel htmlFor='time'>Choose time</FormLabel>
                   <Select
                     variant='flushed'
                     id='time'
                     name='time'
                     value={selectedTime}
-                    onChange={(e) => { dispatchAvailableTimes({ type: 'set_time', payload: e.target.value }) }}
+                    onChange={(e) => { updateTimes({ type: 'set_time', payload: e.target.value }) }}
                   >
-                    {availableTimes.map(avTime => <option key={avTime.value} value={avTime.value}>{avTime.label}</option>)}
+                    {availableTimes.map(avTime => <option selected={avTime.selected} key={avTime.value} value={avTime.value}>{avTime.label}</option>)}
                   </Select>
                 </FormControl>
                 <FormControl>
-                  <FormLabel htmlFor='numberInput'>Choose date</FormLabel>
+                  <FormLabel htmlFor='numberInput'>Choose number of geusts</FormLabel>
                   <NumberInput
                     variant='flushed'
                     id='numberInput'

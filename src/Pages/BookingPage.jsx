@@ -13,7 +13,7 @@ const bookingData = {
 }
 
 const initialAvailableTimes = () => ([
-  { value: '17:00', label: '17:00', selected: false },
+  { value: '17:00', label: '17:00', selected: true },
   { value: '18:00', label: '18:00', selected: false },
   { value: '19:00', label: '19:00', selected: false },
   { value: '20:00', label: '20:00', selected: false },
@@ -36,7 +36,7 @@ const availableTimeReducer = (state, action) => {
 }
 
 const BookingPage = () => {
-  const [availableTimes, dispatchAvailableTimes] = useReducer(availableTimeReducer, {}, initialAvailableTimes)
+  const [availableTimes, updateTimes] = useReducer(availableTimeReducer, {}, initialAvailableTimes)
   return (
     <Main>
       <Hero
@@ -48,7 +48,7 @@ const BookingPage = () => {
       />
       <BookingForm
         availableTimes={availableTimes}
-        dispatchAvailableTimes={dispatchAvailableTimes}
+        updateTimes={updateTimes}
       />
     </Main>
   )
