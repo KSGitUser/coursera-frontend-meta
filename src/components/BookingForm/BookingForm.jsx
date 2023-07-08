@@ -86,7 +86,6 @@ const BookingForm = ({
   }
 
   useEffect(() => {
-    console.log('response =>', response)
     if (response) {
       const { type, message } = response
       onOpen(type, message)

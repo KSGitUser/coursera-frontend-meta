@@ -1,5 +1,4 @@
 const Image = ({ src, alt = 'picture', srcSet = '', media = '', ...props }) => {
-  console.log('props =>', props)
   return (
     <picture {...props}>
       <source
