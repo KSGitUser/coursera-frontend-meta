@@ -2,6 +2,13 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import App from '../../App'
 import BookingPage from '../../Pages/BookingPage'
 
+test('Test static booking header', () => {
+  render(<BookingPage />, { wrapper: App })
+
+  const bookingHeader = screen.getByText('Reserve a table')
+  expect(bookingHeader).toHaveTextContent('Reserve a table')
+})
+
 test('Test initial state of booking time selector', () => {
   render(<BookingPage />, { wrapper: App })
 
