@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import './assets/style/styles.scss'
@@ -6,16 +6,20 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './Pages/HomePage'
-import BookingPage from './Pages/BookingPage'
+const BookingPage = React.lazy(() => import('./Pages/BookingPage'))
+const ConfirmedPage = React.lazy(() => import('./Pages/ConfirmedPage'))
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <App>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/booking' element={<BookingPage />} />
-      </Routes>
+      <Suspense fallback={<div>Loading..</div>}>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/booking' element={<BookingPage />} />
+          <Route path='/confirm' element={<ConfirmedPage />} />
+        </Routes>
+      </Suspense>
     </App>
   </React.StrictMode>
 )
