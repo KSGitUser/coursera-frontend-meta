@@ -5,6 +5,7 @@ import HomePage from './Pages/HomePage'
 import BookingPage from './Pages/BookingPage'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import { AlertProvider } from './context/alertContext'
 
 const typography = {
   regular: function () {
@@ -25,6 +26,14 @@ const typography = {
       lineHeight: '21px',
       color: 'black'
     }
+  },
+  subtitle: function () {
+    return {
+      ...typography.regular(),
+      fontWeight: '400',
+      fontSize: '40px',
+      lineHeight: '48px'
+    }
   }
 }
 
@@ -36,7 +45,8 @@ const theme = extendTheme({
   components: {
     Heading: {
       variants: {
-        leadText: typography.leadText
+        leadText: typography.leadText,
+        subtitle: typography.subtitle
       }
     }
   }
@@ -47,15 +57,16 @@ console.log('theme =>', theme)
 function App () {
   return (
     <ChakraProvider theme={theme}>
-      <BrowserRouter>
-        <Header> </Header>
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/booking' element={<BookingPage />} />
-        </Routes>
-      </BrowserRouter>
-
-      <Footer />
+      <AlertProvider>
+        <BrowserRouter>
+          <Header> </Header>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/booking' element={<BookingPage />} />
+          </Routes>
+        </BrowserRouter>
+        <Footer />
+      </AlertProvider>
     </ChakraProvider>
   )
 }
