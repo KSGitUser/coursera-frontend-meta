@@ -18,12 +18,11 @@ const occasionValues = [
   { value: 'Birthday', label: 'Birthday' },
   { value: 'Anniversary', label: 'Anniversary' }
 ]
-const BookingForm = ({ availableTimes, updateTimes }) => {
+const BookingForm = ({ availableTimes, updateTimes, formDate, setFormDate }) => {
   const { isLoading, response, submit } = useSubmit()
   const { onOpen } = useAlertContext()
   const formRef = useRef(null)
 
-  const [formDate, setFormDate] = useState('')
   const [formNumberInput, setFormNumberInput] = useState('')
   const [formOccasion, setFormOccasion] = useState('')
 

@@ -2,7 +2,8 @@ import Main from '../components/Main'
 import Hero from '../components/Hero/Hero'
 import BookingHeroImg from '../assets/img/reserve-table-hero-image.avif'
 import BookingForm from '../components/BookingForm/BookingForm'
-import { useReducer } from 'react'
+import { useEffect, useReducer, useState } from 'react'
+import { fetchAPI } from '../api/fetchApi'
 
 const bookingData = {
   title: 'Reserve a table',
@@ -11,14 +12,13 @@ const bookingData = {
     alt: 'image of food on mane screen'
   }
 }
-export const initialAvailableTimes = () => ([
-  { value: '17:00', label: '17:00', selected: true },
-  { value: '18:00', label: '18:00', selected: false },
-  { value: '19:00', label: '19:00', selected: false },
-  { value: '20:00', label: '20:00', selected: false },
-  { value: '21:00', label: '21:00', selected: false },
-  { value: '22:00', label: '22:00', selected: false }
-])
+export const initialAvailableTimes = (date) => {
+  const result = fetchAPI(date)
+  console.log(result)
+  return result.map(resultItem => {
+    return { value: resultItem, label: resultItem, selected: false }
+  })
+}
 
 const availableTimeReducer = (state, action) => {
   switch (action.type) {
@@ -30,12 +30,32 @@ const availableTimeReducer = (state, action) => {
         return { ...timeItem, selected: false }
       })
     }
+    case 'new_day': {
+      console.log('action.payload', action.payload)
+      return initialAvailableTimes(action.payload)
+    }
   }
   throw Error('Unknown action: ' + action.type)
 }
 
+const getInitialDate = () => {
+  const currentDate = new Date()
+  const month = String((currentDate.getMonth() + 1)).padStart(2, '0')
+  const day = String((currentDate.getDate())).padStart(2, '0')
+  const year = String((currentDate.getFullYear()))
+  return `${year}-${month}-${day}`
+}
+
 const BookingPage = () => {
-  const [availableTimes, updateTimes] = useReducer(availableTimeReducer, {}, initialAvailableTimes)
+  const [availableTimes, updateTimes] = useReducer(availableTimeReducer, {}, () => initialAvailableTimes(new Date()))
+  const [formDate, setFormDate] = useState(getInitialDate())
+
+  console.log('formDate =>', formDate)
+  useEffect(() => {
+    if (formDate) {
+      updateTimes({ type: 'new_day', payload: new Date(formDate) })
+    }
+  }, [formDate])
   return (
     <Main>
       <Hero
@@ -48,6 +68,8 @@ const BookingPage = () => {
       <BookingForm
         availableTimes={availableTimes}
         updateTimes={updateTimes}
+        formDate={formDate}
+        setFormDate={setFormDate}
       />
     </Main>
   )
