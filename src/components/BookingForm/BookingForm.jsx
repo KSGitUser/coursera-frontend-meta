@@ -9,10 +9,12 @@ import {
   Input,
   Select,
   NumberInput,
-  NumberInputField
+  NumberInputField,
+  FormErrorMessage
 } from '@chakra-ui/react'
 import useSubmit from '../../hooks/useSubmit'
 import { useAlertContext } from '../../context/alertContext'
+import { object, string, date } from 'yup'
 
 const occasionValues = [
   { value: 'Birthday', label: 'Birthday' },
@@ -31,6 +33,9 @@ const BookingForm = ({
 
   const [formNumberInput, setFormNumberInput] = useState('')
   const [formOccasion, setFormOccasion] = useState('')
+  const [formName, setFormName] = useState('')
+  const [formEmail, setFormEmail] = useState('')
+  const [formErrors, setFormErrors] = useState({})
 
   const selectedTime = useMemo(() => {
     for (const timeItem of availableTimes) {
@@ -41,48 +46,36 @@ const BookingForm = ({
     return ''
   }, [availableTimes])
 
-  //   const formFields = {
-  //     reservarionData: [
-  //       {
-  //         labelText: 'Choose date',
-  //         type: 'input',
-  //         inputType: 'date',
-  //         inputName: 'date',
-  //         state: useState(new Date())
-  //       },
-  //       {
-  //         labelText: 'Choose time',
-  //         type: 'select',
-  //         inputName: 'time',
-  //         options: availableTimes,
-  //         state: useState('')
-  //       },
-  //       {
-  //         labelText: 'Number of guests',
-  //         type: 'numberInput',
-  //         inputName: 'guests',
-  //         min: 1,
-  //         max: 10,
-  //         state: useState('')
-  //       },
-  //       {
-  //         labelText: 'Occasion',
-  //         type: 'select',
-  //         inputName: 'occasion',
-  //         state: useState(new Date()),
-  //         options: [
-  //           { value: 'Birthday', label: 'Birthday' },
-  //           { value: 'Anniversary', label: 'Anniversary' }
-  //         ]
-  //       }
-
-  //     ]
-  //   }
-
-  const onFormSubmit = (e) => {
+  const onFormSubmit = async (e) => {
     e.preventDefault()
     const formData = new FormData(e.target)
-    submitForm(formData)
+
+    const formShema = object({
+      name: string().required(),
+      email: string().required().email(),
+      date: date().default(() => new Date()),
+      time: string().required(),
+      numberInput: string().required(),
+      occasion: string().required()
+    })
+
+    let errors = {}
+    try {
+      setFormErrors({})
+      await formShema.validate(
+        Object.fromEntries([...formData.entries()]), { abortEarly: false })
+    } catch (err) {
+      errors = err.inner.reduce((acc, error) => {
+        return {
+          ...acc,
+          [error.path]: error.message
+        }
+      }, {})
+      setFormErrors(errors)
+    }
+    if (!Object.keys(errors).length) {
+      submitForm(formData)
+    }
   }
 
   useEffect(() => {
@@ -134,7 +127,7 @@ const BookingForm = ({
                     {availableTimes.map(avTime => <option disabled={avTime.booked} key={avTime.value} value={avTime.value}>{avTime.label}</option>)}
                   </Select>
                 </FormControl>
-                <FormControl>
+                <FormControl isInvalid={formErrors.numberInput}>
                   <FormLabel htmlFor='numberInput'>Choose number of geusts</FormLabel>
                   <NumberInput
                     variant='flushed'
@@ -148,8 +141,9 @@ const BookingForm = ({
                       onChange={(e) => { setFormNumberInput(e.target.value) }}
                     />
                   </NumberInput>
+                  <FormErrorMessage>{formErrors.numberInput}</FormErrorMessage>
                 </FormControl>
-                <FormControl>
+                <FormControl isInvalid={formErrors.occasion}>
                   <FormLabel htmlFor='time'>Occasion</FormLabel>
                   <Select
                     variant='flushed'
@@ -160,6 +154,30 @@ const BookingForm = ({
                   >
                     {occasionValues.map(avTime => <option key={avTime.value} value={avTime.value}>{avTime.label}</option>)}
                   </Select>
+                  <FormErrorMessage>{formErrors.occasion}</FormErrorMessage>
+                </FormControl>
+                <FormControl isInvalid={formErrors.name}>
+                  <FormLabel htmlFor='name'>Name</FormLabel>
+                  <Input
+                    variant='flushed'
+                    id='name'
+                    name='name'
+                    value={formName}
+                    onChange={(e) => { setFormName(e.target.value) }}
+                  />
+                  <FormErrorMessage>{formErrors.name}</FormErrorMessage>
+                </FormControl>
+                <FormControl isInvalid={formErrors.email}>
+                  <FormLabel htmlFor='email'>Email:</FormLabel>
+                  <Input
+                    type='email'
+                    variant='flushed'
+                    id='email'
+                    name='email'
+                    value={formEmail}
+                    onChange={(e) => { setFormEmail(e.target.value) }}
+                  />
+                  <FormErrorMessage>{formErrors.email}</FormErrorMessage>
                 </FormControl>
               </Box>
               <Button type='submit' colorScheme='purple' width='full' isLoading={isLoading}>
