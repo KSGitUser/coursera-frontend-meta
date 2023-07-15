@@ -184,7 +184,14 @@ const BookingForm = ({
                   <FormErrorMessage>{formErrors.email}</FormErrorMessage>
                 </FormControl>
               </Box>
-              <Button data-testid='form-submit-button' type='submit' colorScheme='purple' width='full' isLoading={isLoading}>
+              <Button
+                data-testid='form-submit-button'
+                type='submit'
+                colorScheme='purple'
+                width='full'
+                isLoading={isLoading}
+                aria-label='Submit Form'
+              >
                 Make Your reservation
               </Button>
             </VStack>

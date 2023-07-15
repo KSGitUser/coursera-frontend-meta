@@ -1,6 +1,5 @@
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import './App.css'
-import { BrowserRouter } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import { AlertProvider } from './context/alertContext'
@@ -54,10 +53,8 @@ function App ({ children }) {
   return (
     <ChakraProvider theme={theme}>
       <AlertProvider>
-        <BrowserRouter>
-          <Header> </Header>
-          {children}
-        </BrowserRouter>
+        <Header> </Header>
+        {children}
         <Footer />
       </AlertProvider>
     </ChakraProvider>
