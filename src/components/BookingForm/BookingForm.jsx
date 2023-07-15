@@ -137,15 +137,17 @@ const BookingForm = ({
                     max={10}
                   >
                     <NumberInputField
+                      data-testid='form-guests-input'
                       value={formNumberInput}
                       onChange={(e) => { setFormNumberInput(e.target.value) }}
                     />
                   </NumberInput>
-                  <FormErrorMessage>{formErrors.numberInput}</FormErrorMessage>
+                  <FormErrorMessage data-testid='form-guests-error'>{formErrors.numberInput}</FormErrorMessage>
                 </FormControl>
                 <FormControl isInvalid={formErrors.occasion}>
                   <FormLabel htmlFor='time'>Occasion</FormLabel>
                   <Select
+                    data-testid='form-ocassion-select'
                     variant='flushed'
                     id='occasion'
                     name='occasion'
@@ -160,6 +162,7 @@ const BookingForm = ({
                   <FormLabel htmlFor='name'>Name</FormLabel>
                   <Input
                     variant='flushed'
+                    data-testid='form-name-input'
                     id='name'
                     name='name'
                     value={formName}
@@ -171,6 +174,7 @@ const BookingForm = ({
                   <FormLabel htmlFor='email'>Email:</FormLabel>
                   <Input
                     type='email'
+                    data-testid='form-email-input'
                     variant='flushed'
                     id='email'
                     name='email'
@@ -180,7 +184,7 @@ const BookingForm = ({
                   <FormErrorMessage>{formErrors.email}</FormErrorMessage>
                 </FormControl>
               </Box>
-              <Button type='submit' colorScheme='purple' width='full' isLoading={isLoading}>
+              <Button data-testid='form-submit-button' type='submit' colorScheme='purple' width='full' isLoading={isLoading}>
                 Make Your reservation
               </Button>
             </VStack>
