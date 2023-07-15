@@ -10,9 +10,13 @@ const BookingPage = React.lazy(() => import('./Pages/BookingPage'))
 const ConfirmedPage = React.lazy(() => import('./Pages/ConfirmedPage'))
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
+
+const baseName = process.env?.BASE_NAME ?? '/'
+
+console.log('baseName =>', baseName)
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={baseName}>
       <App>
         <Suspense fallback={<div>Loading..</div>}>
           <Routes>
