@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/coursera-frontend-meta/static/css/main.30bb62d9.css",
-    "main.js": "/coursera-frontend-meta/static/js/main.89951fbe.js",
+    "main.js": "/coursera-frontend-meta/static/js/main.fa29229a.js",
     "static/js/493.187ee86d.chunk.js": "/coursera-frontend-meta/static/js/493.187ee86d.chunk.js",
     "static/js/733.7df28875.chunk.js": "/coursera-frontend-meta/static/js/733.7df28875.chunk.js",
     "static/js/787.28153f62.chunk.js": "/coursera-frontend-meta/static/js/787.28153f62.chunk.js",
@@ -15,7 +15,7 @@
     "index.html": "/coursera-frontend-meta/index.html",
     "static/media/Menu-icon.svg": "/coursera-frontend-meta/static/media/Menu-icon.0da6f67ced800ab909f63d5144de37ee.svg",
     "main.30bb62d9.css.map": "/coursera-frontend-meta/static/css/main.30bb62d9.css.map",
-    "main.89951fbe.js.map": "/coursera-frontend-meta/static/js/main.89951fbe.js.map",
+    "main.fa29229a.js.map": "/coursera-frontend-meta/static/js/main.fa29229a.js.map",
     "493.187ee86d.chunk.js.map": "/coursera-frontend-meta/static/js/493.187ee86d.chunk.js.map",
     "733.7df28875.chunk.js.map": "/coursera-frontend-meta/static/js/733.7df28875.chunk.js.map",
     "787.28153f62.chunk.js.map": "/coursera-frontend-meta/static/js/787.28153f62.chunk.js.map",
@@ -23,6 +23,6 @@
   },
   "entrypoints": [
     "static/css/main.30bb62d9.css",
-    "static/js/main.89951fbe.js"
+    "static/js/main.fa29229a.js"
   ]
 }
