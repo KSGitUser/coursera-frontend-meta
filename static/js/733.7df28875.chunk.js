@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcoursera_react_app=self.webpackChunkcoursera_react_app||[]).push([[733],{7733:function(e,r,n){n.r(r),n.d(r,{default:function(){return t}});var c=n(184),a=function(){return(0,c.jsx)("div",{className:"container ",children:(0,c.jsx)("h1",{children:"The table reservation is confirmed"})})},t=function(){return(0,c.jsx)(a,{})}}}]);
+//# sourceMappingURL=733.7df28875.chunk.js.map

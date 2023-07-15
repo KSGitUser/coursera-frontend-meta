@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/coursera-frontend-meta/static/css/main.30bb62d9.css",
+    "main.js": "/coursera-frontend-meta/static/js/main.86d35517.js",
+    "static/js/493.187ee86d.chunk.js": "/coursera-frontend-meta/static/js/493.187ee86d.chunk.js",
+    "static/js/733.7df28875.chunk.js": "/coursera-frontend-meta/static/js/733.7df28875.chunk.js",
+    "static/js/787.28153f62.chunk.js": "/coursera-frontend-meta/static/js/787.28153f62.chunk.js",
+    "static/js/667.e3397970.chunk.js": "/coursera-frontend-meta/static/js/667.e3397970.chunk.js",
+    "static/media/restauranfood.webp": "/coursera-frontend-meta/static/media/restauranfood.f553e1df4f6747d65c91.webp",
+    "static/media/Logo.svg": "/coursera-frontend-meta/static/media/Logo.6c132dfefa69396bba43f72aa595e62f.svg",
+    "static/media/greek salad.webp": "/coursera-frontend-meta/static/media/greek salad.29d79eabfb0ca5cd417a.webp",
+    "static/media/bruchetta.webp": "/coursera-frontend-meta/static/media/bruchetta.d36037df92e0ae8b2544.webp",
+    "static/media/reserve-table-hero-image.avif": "/coursera-frontend-meta/static/media/reserve-table-hero-image.eafbe5c8815bd27fbeb9.avif",
+    "static/media/lemon dessert.webp": "/coursera-frontend-meta/static/media/lemon dessert.bb5ad5176a0070867450.webp",
+    "index.html": "/coursera-frontend-meta/index.html",
+    "static/media/Menu-icon.svg": "/coursera-frontend-meta/static/media/Menu-icon.0da6f67ced800ab909f63d5144de37ee.svg",
+    "main.30bb62d9.css.map": "/coursera-frontend-meta/static/css/main.30bb62d9.css.map",
+    "main.86d35517.js.map": "/coursera-frontend-meta/static/js/main.86d35517.js.map",
+    "493.187ee86d.chunk.js.map": "/coursera-frontend-meta/static/js/493.187ee86d.chunk.js.map",
+    "733.7df28875.chunk.js.map": "/coursera-frontend-meta/static/js/733.7df28875.chunk.js.map",
+    "787.28153f62.chunk.js.map": "/coursera-frontend-meta/static/js/787.28153f62.chunk.js.map",
+    "667.e3397970.chunk.js.map": "/coursera-frontend-meta/static/js/667.e3397970.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.30bb62d9.css",
+    "static/js/main.86d35517.js"
+  ]
+}
